@@ -1,0 +1,7 @@
+{
+  "serverUrl": "http://localhost:3000",
+  "workstationId": "PC-01",
+  "pollIntervalMs": 5000,
+  "gracePeriodMs": 15000,
+  "lockAfterFailedCheck": true
+}
