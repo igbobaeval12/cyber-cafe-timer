@@ -23,11 +23,16 @@ export default function ReceiptSettingsPage() {
           <CardDescription className="text-slate-400">Set branding, footer text, and receipt defaults.</CardDescription>
         </CardHeader>
         <CardContent className="grid gap-4 md:grid-cols-2">
-          <Input placeholder="Header text" value={form.header ?? ""} onChange={(e) => setForm((current: any) => ({ ...current, header: e.target.value }))} />
-          <Input placeholder="Footer text" value={form.footer ?? ""} onChange={(e) => setForm((current: any) => ({ ...current, footer: e.target.value }))} />
-          <Input placeholder="Business information" value={form.businessInformation ?? ""} onChange={(e) => setForm((current: any) => ({ ...current, businessInformation: e.target.value }))} />
-          <Input placeholder="QR code (true/false)" value={String(form.qrCode ?? false)} onChange={(e) => setForm((current: any) => ({ ...current, qrCode: e.target.value === "true" }))} />
-          <Input placeholder="Receipt number format" value={form.receiptNumberFormat ?? ""} onChange={(e) => setForm((current: any) => ({ ...current, receiptNumberFormat: e.target.value }))} />
+          <div className="space-y-2"><label className="text-sm font-medium text-white">Receipt Header Text</label><Input placeholder="e.g. Thank you for using our café" value={form.header ?? ""} onChange={(e) => setForm((current: any) => ({ ...current, header: e.target.value }))} />
+          </div>
+          <div className="space-y-2"><label className="text-sm font-medium text-white">Receipt Footer Text</label><Input placeholder="e.g. Thank you, visit again!" value={form.footer ?? ""} onChange={(e) => setForm((current: any) => ({ ...current, footer: e.target.value }))} />
+          </div>
+          <div className="space-y-2"><label className="text-sm font-medium text-white">Business Information</label><Input placeholder="e.g. address and phone number" value={form.businessInformation ?? ""} onChange={(e) => setForm((current: any) => ({ ...current, businessInformation: e.target.value }))} />
+          </div>
+          <div className="space-y-2"><label className="text-sm font-medium text-white">Show QR Code</label><Input placeholder="Type true or false" value={String(form.qrCode ?? false)} onChange={(e) => setForm((current: any) => ({ ...current, qrCode: e.target.value === "true" }))} />
+          </div>
+          <div className="space-y-2"><label className="text-sm font-medium text-white">Receipt Number Format</label><Input placeholder="e.g. RCPT-{number}" value={form.receiptNumberFormat ?? ""} onChange={(e) => setForm((current: any) => ({ ...current, receiptNumberFormat: e.target.value }))} />
+          </div>
         </CardContent>
         <div className="p-6 pt-0"><Button disabled={updateMutation.isPending} onClick={save}>{updateMutation.isPending ? "Saving..." : "Save Receipt Settings"}</Button></div>
       </Card>
