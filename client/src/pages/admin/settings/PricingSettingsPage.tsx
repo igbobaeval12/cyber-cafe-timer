@@ -83,85 +83,121 @@ export default function PricingSettingsPage() {
           </CardDescription>
         </CardHeader>
         <CardContent className="grid gap-4 md:grid-cols-2">
-          <Input
-            placeholder="Default hourly rate"
-            value={form.defaultHourlyRate ?? ""}
-            onChange={(e) =>
-              setForm((current: any) => ({
-                ...current,
-                defaultHourlyRate: Number(e.target.value),
-              }))
-            }
-          />
-          <Input
-            placeholder="VAT / Tax %"
-            value={form.vatPercentage ?? ""}
-            onChange={(e) =>
-              setForm((current: any) => ({
-                ...current,
-                vatPercentage: Number(e.target.value),
-              }))
-            }
-          />
-          <Input
-            placeholder="Printing Black & White"
-            value={form.printingPrices?.blackWhite ?? ""}
-            onChange={(e) =>
-              setForm((current: any) => ({
-                ...current,
-                printingPrices: {
-                  ...(current.printingPrices ?? {}),
-                  blackWhite: Number(e.target.value),
-                },
-              }))
-            }
-          />
-          <Input
-            placeholder="Printing Color"
-            value={form.printingPrices?.color ?? ""}
-            onChange={(e) =>
-              setForm((current: any) => ({
-                ...current,
-                printingPrices: {
-                  ...(current.printingPrices ?? {}),
-                  color: Number(e.target.value),
-                },
-              }))
-            }
-          />
-          <Input
-            placeholder="Scanning Price"
-            value={form.scanningPrices ?? ""}
-            onChange={(e) =>
-              setForm((current: any) => ({
-                ...current,
-                scanningPrices: Number(e.target.value),
-              }))
-            }
-          />
-          <Input
-            placeholder="Photocopy Price"
-            value={form.photocopyPrices ?? ""}
-            onChange={(e) =>
-              setForm((current: any) => ({
-                ...current,
-                photocopyPrices: Number(e.target.value),
-              }))
-            }
-          />
-          <Input
-            placeholder="Membership Discount %"
-            value={form.membershipDiscounts?.vip ?? ""}
-            onChange={(e) =>
-              setForm((current: any) => ({
-                ...current,
-                membershipDiscounts: {
-                  ...(current.membershipDiscounts ?? {}),
-                  vip: Number(e.target.value),
-                },
-              }))
-            }
-          />
+          <div className="space-y-2">
+            <label className="text-sm font-medium text-white">Default Hourly Rate (₦/hour)</label>
+            <Input
+              placeholder="e.g. 500"
+              type="number"
+              min="1"
+              value={form.defaultHourlyRate ?? ""}
+              onChange={(e) =>
+                setForm((current: any) => ({
+                  ...current,
+                  defaultHourlyRate: Number(e.target.value),
+                }))
+              }
+            />
+          </div>
+          <div className="space-y-2">
+            <label className="text-sm font-medium text-white">VAT / Tax (%)</label>
+            <Input
+              placeholder="e.g. 0"
+              type="number"
+              min="0"
+              value={form.vatPercentage ?? ""}
+              onChange={(e) =>
+                setForm((current: any) => ({
+                  ...current,
+                  vatPercentage: Number(e.target.value),
+                }))
+              }
+            />
+          </div>
+          <div className="space-y-2">
+            <label className="text-sm font-medium text-white">Black & White Printing (₦/page)</label>
+            <Input
+              placeholder="e.g. 50"
+              type="number"
+              min="0"
+              value={form.printingPrices?.blackWhite ?? ""}
+              onChange={(e) =>
+                setForm((current: any) => ({
+                  ...current,
+                  printingPrices: {
+                    ...(current.printingPrices ?? {}),
+                    blackWhite: Number(e.target.value),
+                  },
+                }))
+              }
+            />
+          </div>
+          <div className="space-y-2">
+            <label className="text-sm font-medium text-white">Colour Printing (₦/page)</label>
+            <Input
+              placeholder="e.g. 100"
+              type="number"
+              min="0"
+              value={form.printingPrices?.color ?? ""}
+              onChange={(e) =>
+                setForm((current: any) => ({
+                  ...current,
+                  printingPrices: {
+                    ...(current.printingPrices ?? {}),
+                    color: Number(e.target.value),
+                  },
+                }))
+              }
+            />
+          </div>
+          <div className="space-y-2">
+            <label className="text-sm font-medium text-white">Scanning Price (₦/page)</label>
+            <Input
+              placeholder="e.g. 100"
+              type="number"
+              min="0"
+              value={form.scanningPrices ?? ""}
+              onChange={(e) =>
+                setForm((current: any) => ({
+                  ...current,
+                  scanningPrices: Number(e.target.value),
+                }))
+              }
+            />
+          </div>
+          <div className="space-y-2">
+            <label className="text-sm font-medium text-white">Photocopy Price (₦/page)</label>
+            <Input
+              placeholder="e.g. 50"
+              type="number"
+              min="0"
+              value={form.photocopyPrices ?? ""}
+              onChange={(e) =>
+                setForm((current: any) => ({
+                  ...current,
+                  photocopyPrices: Number(e.target.value),
+                }))
+              }
+            />
+          </div>
+          <div className="space-y-2">
+            <label className="text-sm font-medium text-white">Membership Discount (%)</label>
+            <Input
+              placeholder="e.g. 10"
+              type="number"
+              min="0"
+              max="100"
+              value={form.membershipDiscounts?.vip ?? ""}
+              onChange={(e) =>
+                setForm((current: any) => ({
+                  ...current,
+                  membershipDiscounts: {
+                    ...(current.membershipDiscounts ?? {}),
+                    vip: Number(e.target.value),
+                  },
+                }))
+              }
+            />
+          </div>
         </CardContent>
         <div className="p-6 pt-0">
           <Button disabled={isSaving} onClick={save}>
