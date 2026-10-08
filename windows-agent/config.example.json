@@ -1,0 +1,10 @@
+{
+  "serverUrl": "https://cyber-cafe-timer-production.up.railway.app",
+  "workstationId": "PC-01",
+  "sessionToken": "",
+  "adminUsername": "",
+  "adminPassword": "",
+  "heartbeatSeconds": 15,
+  "statePollSeconds": 5,
+  "lockWhenNoSession": true
+}
