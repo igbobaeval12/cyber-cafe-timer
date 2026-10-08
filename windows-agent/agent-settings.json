@@ -1,5 +1,5 @@
 {
-  "serverUrl": "http://localhost:3000",
+  "serverUrl": "https://cyber-cafe-timer-production.up.railway.app",
   "workstationId": "PC-01",
   "pollIntervalMs": 5000,
   "gracePeriodMs": 15000,
