@@ -26,17 +26,28 @@ export default function GeneralSettingsPage() {
           <CardDescription className="text-slate-400">Update the basic business identity and localization settings.</CardDescription>
         </CardHeader>
         <CardContent className="grid gap-4 md:grid-cols-2">
-          <Input placeholder="Cyber Café Name" value={form.cafeName ?? ""} onChange={(e) => setForm((current: any) => ({ ...current, cafeName: e.target.value }))} />
-          <Input placeholder="Address" value={form.address ?? ""} onChange={(e) => setForm((current: any) => ({ ...current, address: e.target.value }))} />
-          <Input placeholder="Phone Number" value={form.phoneNumber ?? ""} onChange={(e) => setForm((current: any) => ({ ...current, phoneNumber: e.target.value }))} />
-          <Input placeholder="Email" value={form.email ?? ""} onChange={(e) => setForm((current: any) => ({ ...current, email: e.target.value }))} />
-          <Input placeholder="Website" value={form.website ?? ""} onChange={(e) => setForm((current: any) => ({ ...current, website: e.target.value }))} />
-          <Input placeholder="Currency" value="NGN" disabled />
-          <Input placeholder="Time Zone" value={form.timeZone ?? ""} onChange={(e) => setForm((current: any) => ({ ...current, timeZone: e.target.value }))} />
-          <Input placeholder="Date Format" value={form.dateFormat ?? ""} onChange={(e) => setForm((current: any) => ({ ...current, dateFormat: e.target.value }))} />
-          <Input placeholder="Language" value={form.language ?? ""} onChange={(e) => setForm((current: any) => ({ ...current, language: e.target.value }))} />
-          <Input placeholder="Theme" value={form.theme ?? ""} onChange={(e) => setForm((current: any) => ({ ...current, theme: e.target.value }))} />
-          <Input placeholder="System Version" value={form.systemVersion ?? ""} onChange={(e) => setForm((current: any) => ({ ...current, systemVersion: e.target.value }))} />
+          <div className="space-y-2"><label className="text-sm font-medium text-white">Cyber Café Name</label><Input placeholder="e.g. Ba-eval Cyber Café" value={form.cafeName ?? ""} onChange={(e) => setForm((current: any) => ({ ...current, cafeName: e.target.value }))} />
+          </div>
+          <div className="space-y-2"><label className="text-sm font-medium text-white">Business Address</label><Input placeholder="e.g. 123 Main Street, Calabar" value={form.address ?? ""} onChange={(e) => setForm((current: any) => ({ ...current, address: e.target.value }))} />
+          </div>
+          <div className="space-y-2"><label className="text-sm font-medium text-white">Phone Number</label><Input placeholder="e.g. 08012345678" value={form.phoneNumber ?? ""} onChange={(e) => setForm((current: any) => ({ ...current, phoneNumber: e.target.value }))} />
+          </div>
+          <div className="space-y-2"><label className="text-sm font-medium text-white">Email Address</label><Input type="email" placeholder="e.g. cafe@example.com" value={form.email ?? ""} onChange={(e) => setForm((current: any) => ({ ...current, email: e.target.value }))} />
+          </div>
+          <div className="space-y-2"><label className="text-sm font-medium text-white">Website</label><Input placeholder="e.g. https://example.com" value={form.website ?? ""} onChange={(e) => setForm((current: any) => ({ ...current, website: e.target.value }))} />
+          </div>
+          <div className="space-y-2"><label className="text-sm font-medium text-white">Currency</label><Input value="NGN (₦)" disabled />
+          </div>
+          <div className="space-y-2"><label className="text-sm font-medium text-white">Time Zone</label><Input placeholder="e.g. Africa/Lagos" value={form.timeZone ?? ""} onChange={(e) => setForm((current: any) => ({ ...current, timeZone: e.target.value }))} />
+          </div>
+          <div className="space-y-2"><label className="text-sm font-medium text-white">Date Format</label><Input placeholder="e.g. DD/MM/YYYY" value={form.dateFormat ?? ""} onChange={(e) => setForm((current: any) => ({ ...current, dateFormat: e.target.value }))} />
+          </div>
+          <div className="space-y-2"><label className="text-sm font-medium text-white">Language</label><Input placeholder="e.g. English" value={form.language ?? ""} onChange={(e) => setForm((current: any) => ({ ...current, language: e.target.value }))} />
+          </div>
+          <div className="space-y-2"><label className="text-sm font-medium text-white">Theme</label><Input placeholder="e.g. dark" value={form.theme ?? ""} onChange={(e) => setForm((current: any) => ({ ...current, theme: e.target.value }))} />
+          </div>
+          <div className="space-y-2"><label className="text-sm font-medium text-white">System Version</label><Input placeholder="e.g. 1.0.0" value={form.systemVersion ?? ""} onChange={(e) => setForm((current: any) => ({ ...current, systemVersion: e.target.value }))} />
+          </div>
         </CardContent>
         <div className="p-6 pt-0"><Button disabled={updateMutation.isPending} onClick={save}>{updateMutation.isPending ? "Saving..." : "Save General Settings"}</Button></div>
       </Card>
